@@ -1,0 +1,18 @@
+train:
+  gpus: 0  # 训练使用的GPU序号，使用英文逗号隔开 | 0,1  The GPU serial number used for training, use commas to separate them | 0,1
+  batch_size: 32  # 训练的批量大小  Batch size
+  num_workers: 8  # 读取数据的线程数量  Number of threads reading data
+  num_epoch: 60  # 训练的轮数  Number of rounds of training
+  learning_rate: 1e-3  # 学习率的大小  Learning rate
+  train_list_path: data/train_list.txt  # 训练数据的数据列表路径  Data list path of training data
+  test_list_path: data/test_list.txt  # 测试数据的数据列表路径  Data list path of test data
+  save_model: models/  # 模型保存的路径  The path where the model is saved
+#  使用预训练模型时请将resume调整为True，并调整pretrained_model为要训练的目录名称
+#  When using a pre-trained model, please adjust 'resume' to True and adjust 'pretrained_model' to the name of the directory to be trained.
+  resume: False # 使用预训练模型 | True/False  Use pre-trained models | True/False
+  pretrained_model: epoch_0  # 预训练模型的路径名称 | epoch_x  The path name of the pre-trained model | epoch_x
+
+inference:
+  save_model: models/  # 模型保存的路径  The path where the model is saved
+  trained_model: resnet34.pth # 'resnet34.pth'
+  audio_path: inference/song.mp3 # 需推理的音频路径  Audio path for inference
